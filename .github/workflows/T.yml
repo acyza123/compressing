@@ -90,6 +90,7 @@ jobs:
         run: npm run ci
       
       - name: artifact
+        if: ${{ failure() }}
         uses: actions/upload-artifact@v3
         path: .temp
 
