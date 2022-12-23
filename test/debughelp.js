@@ -36,17 +36,19 @@ function arrToStr(arr) {
 }
 
 function eqF(path1, path2) {
+  function thr(s, s1) {
+    throw `path1:${path1}\npath2:${path2}\ndir1:${s}\ndir2${s1}`;
+  }
   const dir1 = fs.readdirSync(path1);
   const dir2 = fs.readdirSync(path2);
-  if (dir1.length !== dir2.length) return false;
+  if (dir1.length !== dir2.length) thr(dir1.toString(), dir2.toString());
   for (let i = 0; i < dir1.length; i++) {
-    if (dir1[i] !== dir2[i]) return false;
-    if (fs.statSync(dir1[i])
-    .isDirectory() && !eqF(dir1[i], dir2[i])) {
-      throw dir1[i] + ':' + dir2[i];
+    if (dir1[i] !== dir2[i]) thr(dir1[i], dir2[i]);
+    if (fs.statSync(path1 + '/' + dir1[i])
+    .isDirectory() && !eqF(path1 + '/' + dir1[i], path2 + '/' + dir2[i])) {
+      thr(dir1[i], dir2[i]);
     }
   }
-  return true;
 }
 
 module.exports.compareSync = function() {
