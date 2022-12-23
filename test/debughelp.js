@@ -3,6 +3,22 @@ const _dircompare = require('dir-compare');
 const fs = require('fs');
 
 /**
+ * @param { any } obj obj
+ * @return { string } string
+ */
+function objToStr(obj) {
+  let result = '{';
+  for (const key in obj) {
+    if (typeof obj[key] === 'string') {
+      result += `${key}: ${obj[key]},`;
+    } else {
+      result += `${key}: ${objToStr(obj[key])}`;
+    }
+  }
+  return result + '}';
+}
+
+/**
  * @param { Array<any> } arr array
  * @return { string } string
  */
@@ -12,7 +28,7 @@ function arrToStr(arr) {
     if (Array.isArray(item)) {
       result += arrToStr(item);
     }
-    result += item.toString();
+    result += objToStr(item);
   }
   return result + ']';
 }
