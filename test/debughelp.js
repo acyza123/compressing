@@ -8,13 +8,13 @@ const fs = require('fs');
  */
 function arrToStr(arr) {
   let result = '[';
-  for (const item in arr) {
+  for (const item of arr) {
     if (Array.isArray(item)) {
       result += arrToStr(item);
     }
     result += item.toString();
   }
-  return result;
+  return result + ']';
 }
 
 module.exports.compareSync = function() {
