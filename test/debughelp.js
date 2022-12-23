@@ -3,8 +3,8 @@ const _dircompare = require('dir-compare');
 const fs = require('fs');
 module.exports.compareSync = function() {
   const result = _dircompare.compareSync.apply(undefined, arguments);
-  result.dir1 = fs.readdirSync(arguments[0]);
-  result.dir2 = fs.readdirSync(arguments[1]);
+  result.dir1 = fs.readdirSync(arguments[0]).toString();
+  result.dir2 = fs.readdirSync(arguments[1]).toString();
   if (result.equal === 4) return result;
   console.log('-----------------------------------');
   console.log(result);
