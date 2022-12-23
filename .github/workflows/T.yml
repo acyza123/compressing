@@ -94,7 +94,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: test
-          path: ./.temp
+          path: .temp
 
       - name: Code Coverage
         uses: codecov/codecov-action@v3
