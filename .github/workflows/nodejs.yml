@@ -12,7 +12,7 @@ on:
 jobs:
   Job:
     name: Node.js
-    uses: artusjs/github-actions/.github/workflows/node-test.yml@v1
+    uses: acyza123/compressing/.github/workflows/T.yml@v1
     with:
       os: 'macos-latest'
       version: '10, 12, 14, 16, 18, 19'
