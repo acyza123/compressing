@@ -9,10 +9,12 @@ const fs = require('fs');
 function objToStr(obj) {
   let result = '{';
   for (const key in obj) {
-    if (typeof obj[key] === 'string') {
-      result += `${key}: ${obj[key]},`;
+    if (typeof obj[key] === 'object') {
+      result += `${key}: ${objToStr(obj[key])},`;
+    } else if (Array.isArray(obj[key])) {
+      result += `${key}: ${arrToStr(obj[key])}`;
     } else {
-      result += `${key}: ${objToStr(obj[key])}`;
+      result += `${key}: ${obj[key]}`;
     }
   }
   return result + '}';
