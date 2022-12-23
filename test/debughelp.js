@@ -12,9 +12,9 @@ function objToStr(obj) {
     if (typeof obj[key] === 'object') {
       result += `${key}: ${objToStr(obj[key])},`;
     } else if (Array.isArray(obj[key])) {
-      result += `${key}: ${arrToStr(obj[key])}`;
+      result += `${key}: ${arrToStr(obj[key])},`;
     } else {
-      result += `${key}: ${obj[key]}`;
+      result += `${key}: ${obj[key]},`;
     }
   }
   return result + '}';
