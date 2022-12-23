@@ -44,10 +44,8 @@ function eqF(path1, path2) {
   if (dir1.length !== dir2.length) thr('length', dir1.toString(), dir2.toString());
   for (let i = 0; i < dir1.length; i++) {
     if (dir1[i] !== dir2[i]) thr('name', dir1[i], dir2[i]);
-    if (fs.statSync(path1 + '/' + dir1[i])
-    .isDirectory() && !eqF(path1 + '/' + dir1[i], path2 + '/' + dir2[i])) {
-      thr('dir', dir1[i], dir2[i]);
-    }
+    fs.statSync(path1 + '/' + dir1[i])
+    .isDirectory() && eqF(path1 + '/' + dir1[i], path2 + '/' + dir2[i]);
   }
 }
 
