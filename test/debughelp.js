@@ -36,17 +36,17 @@ function arrToStr(arr) {
 }
 
 function eqF(path1, path2) {
-  function thr(s, s1) {
-    throw `path1:${path1}\npath2:${path2}\ndir1:${s}\ndir2${s1}`;
+  function thr(m, s, s1) {
+    throw `message:${m},path1:${path1}\npath2:${path2}\ndir1:${s}\ndir2:${s1}`;
   }
   const dir1 = fs.readdirSync(path1);
   const dir2 = fs.readdirSync(path2);
-  if (dir1.length !== dir2.length) thr(dir1.toString(), dir2.toString());
+  if (dir1.length !== dir2.length) thr('length', dir1.toString(), dir2.toString());
   for (let i = 0; i < dir1.length; i++) {
-    if (dir1[i] !== dir2[i]) thr(dir1[i], dir2[i]);
+    if (dir1[i] !== dir2[i]) thr('name', dir1[i], dir2[i]);
     if (fs.statSync(path1 + '/' + dir1[i])
     .isDirectory() && !eqF(path1 + '/' + dir1[i], path2 + '/' + dir2[i])) {
-      thr(dir1[i], dir2[i]);
+      thr('dir', dir1[i], dir2[i]);
     }
   }
 }
