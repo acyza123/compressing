@@ -12,7 +12,7 @@ on:
 jobs:
   Job:
     name: Node.js
-    uses: ./.github/workflows/T.yml@v1
+    uses: ./.github/workflows/T.yml
     with:
       os: 'macos-latest'
       version: '10, 12, 14, 16, 18, 19'
