@@ -9,7 +9,7 @@ const assert = require('assert');
 const mkdirp = require('mkdirp');
 const pump = require('pump');
 const compressing = require('../..');
-const dircompare = require('../help');
+const dircompare = require('../debughelp');
 const streamifier = require('streamifier');
 
 const originalDir = path.join(__dirname, '..', 'fixtures', 'xxx');
