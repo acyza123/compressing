@@ -6,7 +6,7 @@
   "scripts": {
     "contributor": "git-contributor",
     "ts-test": "tsc -p ./test/fixtures/types/tsconfig.json",
-    "test": "egg-bin test -parallel && npm run ts-test",
+    "test": "egg-bin test && npm run ts-test",
     "cov": "egg-bin cov",
     "lint-fix": "eslint . --fix",
     "lint": "eslint .",
