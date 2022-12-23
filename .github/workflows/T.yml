@@ -92,7 +92,7 @@ jobs:
       - name: artifact
         if: ${{ failure() }}
         uses: actions/upload-artifact@v3
-        path: .temp
+        path: ./.temp
 
       - name: Code Coverage
         uses: codecov/codecov-action@v3
