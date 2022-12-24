@@ -50,14 +50,14 @@ function eqF(path1, path2) {
 }
 
 module.exports.compareSync = function() {
-  eqF.apply(undefined, arguments);
+  // eqF.apply(undefined, arguments);
   const result = _dircompare.compareSync.apply(undefined, arguments);
-  result.diff = arrToStr(result.diffSet);
-  if (result.equal === 4) return result;
-  console.log('-----------------------------------');
-  console.log(result);
-  console.log('dir 1:%s \n dir 2:%s', fs.readdirSync(arguments[0]), fs.readdirSync(arguments[1]));
-  console.log('-----------------------------------');
+  // result.diff = arrToStr(result.diffSet);
+  // if (result.equal === 4) return result;
+  // console.log('-----------------------------------');
+  // console.log(result);
+  // console.log('dir 1:%s \n dir 2:%s', fs.readdirSync(arguments[0]), fs.readdirSync(arguments[1]));
+  // console.log('-----------------------------------');
   return result;
 };
 
