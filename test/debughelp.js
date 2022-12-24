@@ -37,7 +37,7 @@ function arrToStr(arr) {
 
 function eqF(path1, path2) {
   function thr(m, s, s1) {
-    throw `message:${m},path1:${path1}\npath2:${path2}\ndir1:${s}\ndir2:${s1}`;
+    throw new Error(`message:${m},path1:${path1}\npath2:${path2}\ndir1:${s}\ndir2:${s1}`);
   }
   const dir1 = fs.readdirSync(path1);
   const dir2 = fs.readdirSync(path2);
